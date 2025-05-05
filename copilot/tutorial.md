@@ -159,14 +159,80 @@ Este accion es necesaria para evitar que en nuestro proyecto se genere codigo co
 
 El modo agente tiene muchas similitudes con el modo edit, la diferencia mas importante es que este modo no es siempre necesario agregar los archivos en los que el agente tienen que enfocarse,  aunque en tareas complejas puede ser recomendable.
 
+Se podria comparar a lo que podria hacer herramientas como bolt.dev.  v0, firebase studio, etc.
+
 Veamos un ejemplo basico de uso, para que ver como funciona.
 
+Prompt
+
+```markdown
+
+Crear una web app usando react, el codigo debe estar en la carpeta web
+
+Descripción General
+La aplicación tiene como propósito permitir al usuario registrar, consultar y gestionar una lista de tareas personales desde un dispositivo móvil.
+
+Requerimientos Funcionales
+2.1 Gestión de Tareas
+
+La app debe permitir al usuario crear una nueva tarea proporcionando un título obligatorio.
+La app debe permitir al usuario agregar una descripción opcional a cada tarea.
+La app debe permitir al usuario editar el contenido (título y descripción) de una tarea existente.
+La app debe permitir al usuario eliminar una tarea de forma permanente.
+La app debe permitir al usuario marcar una tarea como completada.
+La app debe permitir al usuario desmarcar una tarea previamente completada.
+2.2 Visualización y Navegación
+
+La app debe mostrar al usuario una lista de todas las tareas creadas.
+La app debe distinguir visualmente las tareas completadas de las pendientes.
+La app debe permitir al usuario filtrar las tareas por estado:
+
+Todas
+
+Pendientes
+
+Completadas
+
+2.3 Persistencia de Información
+
+La app debe almacenar localmente todas las tareas creadas, incluso después de cerrar y reabrir la aplicación.
+La app cargar automáticamente la información persistida al iniciar la aplicación.
+2.4 Comportamiento General
+
+La app debe validar que toda tarea tenga, como mínimo, un título no vacío antes de permitir su registro o edición.
+```
+
+Una vez enviado el prompt, una de las primeras diferencias que vamos a notar es que el agente nos va preguntar si queremos ejecutar comandos en la terminal, en este caso necesarios para el setup del proyecto.
+
+![Copilot icon](agent01.png)
+
+Em este caso son dos comandos, el primero es para generar la carpeta en donde va a estar el proyecto y el segundo es para inicializar un nuevo proyecto de react.
+
+Una vez que esten creadas las carpetas y archivos necesarios, copilot va a empezar a generar el codigo necesario para la app.
+
+![Copilot icon](agent02.png)
+
+Despues de unos minutos, copilot nos va a sugerir el comando para iniciar la app
+
+![Copilot icon](agent03.png)
+
+
+Todos estos comandos se ejecutan en la terminal integrada de vscode, 
+el resultado seria este.
+
+![Copilot icon](agent04.png)
+
+Casos de uso.
+
+- Cuando se necesite un prototipo navegable, rapido sin prestar mucha atencion al codigo generado.
+- Cuando se necesite crear una app con un stack conocido, por ejemplo react, javascript.
 
 
 
+## Reglas
 
+Algo que puede suceder utilizando cualquiera de los modos disponibles, es que copilot nos sugiera codigo que no cumpla con las convenciones del proyecto, que intente utilizar una libreria o tecnologia que no es la correcta, esto como se comento anteriormente lo podemos corregir pasando contexto en el prompt,
 
-5. Modo reglas.
 
 
 TIPS
