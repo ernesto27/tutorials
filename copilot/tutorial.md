@@ -96,7 +96,7 @@ otra opcion es arrastrar y soltar los archivos en la ventana de copilot.
 En caso de querer utilizar el chat sin contexto alguno se deber click en el icono "eye,ojo" que esta a la derecha del nombre del archivo en el panel del chat.
 
 
-Un ejemplo de uso podria seri cuando se requiera hacer una pregunta sobre que tecnologia o diseño utilizar para cierta tarea.
+Un ejemplo de uso podria ser cuando se requiera hacer una pregunta sobre que tecnologia o diseño utilizar para cierta tarea.
 
 Ejemplo de un prompt basico.
 
@@ -111,8 +111,26 @@ Esta es parte de la respuesta
 Estos son algunos ejemplos de uso del modo ask
 
 
-- Cuando se prefiera ir copiando y pegando el codigo a mano en lugar de que copilot modifique los archivos.
 - Util para aprender una nueva tecnologia o framework,  se entiende mejor un concepto  paso a paso de vez de generar muchos cambios de una vez.
+- Cuando se prefiera ir copiando y pegando el codigo a mano en lugar de que copilot modifique los archivos. 
+- También existe la opcion de aplicar directamente en el archivo a editar o en la terminal.
+
+En terminal
+
+![](ask06.png)
+
+En archivo
+
+![](ask03.png)
+
+Aplicando el codigo, copilot reconoce automáticamente en qué archivo deberia aplicar los cambios (si le dimos bien el contexto) o si es necesario crear un archivo nuevo
+
+![](ask04.png)
+
+Al aceptar los cambios sugeridos, se muestran los cambios a aplicar: en verde las lineas que se agregarán y en rojo las que se eliminarán. Se pueden aceptar todos los cambios juntos o individualmente
+
+![](ask05.png)
+
 
 ## Modo edit 
 
@@ -250,3 +268,19 @@ si bien el contexto de una gran parte de los ultimos modelos se fue extiendo, al
 
 - Tener en cuenta que los LLM tienen una fecha de corte de entrenamiento de datos, por ejemplo claude 3.7 la fecha es 
 agosto del 2024,  esto quiere decir que en caso de necesitar una nueva version de un lenguaje o libreria,  copilot no va a funcionar bien,  para solucionar esto se puede indicar a copilot que indexe el contenido de la documentacion oficial de la libreria o lenguaje,  esto se puede hacer presionando #fetch y copiando el link correspondiente,  esto le va a permitir a copilot indexar el contenido de la documentacion y utilizarlo como contexto,
+
+- Puede abrirse el chat de Copilot en una ventana nueva, muy cómodo cuando se trabaja con mas de una pantalla ya que permite ver el código y las respuestas de Copilot simultáneamente. Esto se puede hacer haciendo clic en "Abrir chat en una ventana nueva" en las opciones del chat arriba a la derecha.
+
+    ![Copilot icon](tip01.png)
+
+- Incluir en el prompt instrucciones que inciten a Copilot a hacer preguntas antes de generar código. Esto evita que el modelo haga suposiciones incorrectas y genere soluciones que no se ajusten a lo que realmente necesitas, reduciendo el tiempo de iteración.
+
+    ![Copilot icon](tip02.png)
+
+Ejemplo de un prompt basico.
+
+```markdown
+[Lo que necesito que haga copilot], si no entiendes algo preguntame para despejar dudas, no asumas nada antes de generar codigo 
+```
+
+
