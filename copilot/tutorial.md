@@ -249,25 +249,140 @@ Casos de uso.
 
 ## Reglas
 
-Algo que puede suceder utilizando cualquiera de los modos disponibles, es que copilot nos sugiera codigo que no cumpla con las convenciones del proyecto, que intente utilizar una libreria o tecnologia que no es la correcta, esto como se comento anteriormente lo podemos corregir pasando contexto en el prompt,
+Algo que puede suceder utilizando cualquiera de los modos disponibles, es que copilot nos sugiera codigo que no cumpla con las convenciones del proyecto, que intente utilizar una libreria o tecnologia que no es la correcta, esto como se comento anteriormente lo podemos corregir pasando contexto en el prompt, pero hay una manera de evitar esto y es creando un archivo de reglas,  el cual copilot va a utilizar cada vez que utilicemos cualquiera de los modos ( ask, edit, agent ).
+
+El archivo debe crearse en esta ruta
+
+.github/copilot-instructions.md
+
+Ejemplo 
+
+```markdown
+
+This document defines guidelines for GitHub Copilot to follow when working with this codebase. These rules ensure that generated code aligns with our established patterns and practices.
+
+## Project Overview
+
+This is a full-stack application with:
+- **Backend**: Go-based API with controllers, models, and services
+- **Frontend**: Next.js with TypeScript, React components, and Tailwind CSS
+
+## Backend (Go) Guidelines
+
+### Code Structure
+- Follow the existing structure of controllers, models, services, and internal packages
+- Controllers should handle HTTP requests and responses only
+- Business logic should be in service layers
+- Models should define data structures and database interactions
+
+### Error Handling
+- Use the response package for consistent HTTP responses
+- Log errors with the appropriate level (ERROR, INFO, etc.)
+- Always return appropriate HTTP status codes
+- Use the format: `response.NewWithoutData().BadRequest(w)` for error responses
+
+### Database Interactions
+- Use the established DB connection patterns
+- Properly handle SQL queries with error checking
+- Follow existing transaction patterns for multi-step operations
+
+### Authentication/Authorization
+- Use the context package for authentication context
+- Properly validate JWT tokens using established patterns
+- Check authorization for protected resources
+
+### Testing
+- Follow the existing test patterns in the tests_integration directory
+- Use table-driven tests with descriptive names
+
+## Frontend (Next.js/TypeScript) Guidelines
+
+### Component Structure
+- Use the 'use client' directive for client components
+- Follow the existing component organization patterns
+- Create reusable components in the components directory
+- Use TypeScript interfaces and types for all props
+
+### Styling
+- Use Tailwind CSS for styling following existing patterns
+- Follow the design system using tailwindConfig for colors and themes
+- Support both light and dark mode themes
+
+### Data Fetching
+- Use axios for API requests following established patterns
+- Handle loading and error states appropriately
+- Follow the existing authentication patterns for protected routes
+
+### TypeScript Usage
+- Use proper TypeScript types and interfaces
+- Avoid using 'any' type when possible
+- Use optional chaining and nullish coalescing operators when appropriate
+
+### State Management
+- Follow established patterns for state management
+- Use React hooks (useState, useEffect, etc.) consistently
+- Maintain proper component lifecycle practices
+
+## General Guidelines
+
+### Naming Conventions
+- **Backend**: 
+  - Use CamelCase for exported variables, types, and functions
+  - Follow GoLang naming conventions
+  - Use descriptive names that reflect purpose
+- **Frontend**:
+  - Use PascalCase for component names
+  - Use camelCase for variables and functions
+  - Use descriptive, semantic naming
+
+### Comments and Documentation
+- Add meaningful comments for complex logic
+- Document public functions and methods
+- Follow existing comment patterns in the codebase
+
+### Security Practices
+- Don't expose sensitive information in client-side code
+- Validate all user inputs on both client and server
+- Follow secure coding practices for authentication and data handling
+
+### Performance Considerations
+- Optimize database queries for large datasets
+- Consider client-side performance for UI rendering
+- Follow established patterns for handling large data sets
+
+## API Integration
+- Follow RESTful API patterns established in the codebase
+- Use consistent error handling between frontend and backend
+- Maintain proper typing for API requests and responses
+
+Explain all code changes in detail
+
+---
+
+These guidelines should be followed when generating or modifying code in this repository to maintain consistency and quality.
+
+```
+
+Copilot utilizando el archivo de reglas,  en cada interaccion.
+
+![Copilot icon](rules.png)
 
 
 
-TIPS
+## Tips y recomendaciones
 
-- Separar el proyecto tareas pequeñas y lo mas enfocadas posible,  esto es lo que a largo plazo funciona mejor en un proyecto real
+- Separar los features y objetivos del proyecto en tareas pequeñas, de esta manera copilot va a estar mas enfocado en hacer algo especifico, lo cual logra mejores resultados que intentar hacer muchas cosas de una vez.
 
-- Cada vez que empiezen una nuevo feature o tareas,  es recomendable empezar con un nuevo chat,  esto es debido a que a medida que se va generando una conversacion, todo ese historial de conversacion es el que se envia al servicio del model en particular que estemos utilizando,  y puede provocar por un lado,  que copilot tarde mas tiempo en responder y por otro que empiece a generar respuestas confusas o que no tengan sentido, 
-si bien el contexto de una gran parte de los ultimos modelos se fue extiendo, al dia de hoy  es un limitante en la uso practico de la herramienta.
+- Cada vez que empiezen una nuevo feature o tareas,  es recomendable crear un nuevo chat,  esto es debido a que a medida que se va generando una interacion con el chat, todo ese historial de conversacion es el que se finalmente se envia al  servicio del modelo en particular que estemos utilizando,  esto puede provocar por un lado, copilot tarde mas tiempo en responder y por otro que empiece a generar respuestas confusas o que no tengan sentido,  que si bien el contexto de una gran parte de los ultimos se fue extendiendo, al dia de hoy es un limitante en el uso practico y real de la herramienta.
 
 - Pedir a copilot diferentes opciones de resolucion de un problema,  pedirle cuales son las ventajas y desventajas de cada una, ejemplos de uso,  despues de analizar y decidir que es lo que mejor se adapta a nuestro caso,  pedirle que implemente la solucion elegida.
 
 - En lo posible tratar de no trabajar con archivos muy grandes, con muchas lineas de codigo, y mezcla de responsablidadades,  el contexto con el que deberia trabajar copilot deberia estar lo mas acotado posible a la larea en cuestion para lograr mejores resultados.
 
-- Tomarse un tiempo para escribir un prompt lo suficientemente claro, tomenlo como si estuvieran escribiendo un mensaje hacia un compañero de trabajo o a ustedes mismos,  si el mensaje es ambiguo copilot va a tener tendencia a adivinar o tomar desiciones extrañas las cuales terminas siendo frustrantes.
+- Tomarse un tiempo para escribir un prompt lo suficientemente claro, tomenlo como si estuvieran escribiendo un mensaje hacia un compañero de trabajo o a ustedes mismos,  si el mensaje es ambiguo copilot va a tener tendencia a adivinar o tomar desiciones extrañas las cuales terminan generando un resultado poco util.
 
 - Tener en cuenta que los LLM tienen una fecha de corte de entrenamiento de datos, por ejemplo claude 3.7 la fecha es 
-agosto del 2024,  esto quiere decir que en caso de necesitar una nueva version de un lenguaje o libreria,  copilot no va a funcionar bien,  para solucionar esto se puede indicar a copilot que indexe el contenido de la documentacion oficial de la libreria o lenguaje,  esto se puede hacer presionando #fetch y copiando el link correspondiente,  esto le va a permitir a copilot indexar el contenido de la documentacion y utilizarlo como contexto,
+agosto del 2024,  esto quiere decir que en caso de necesitar una nueva version de un lenguaje o libreria,  copilot no va a encontrar esa informacion,  para solucionar esto se puede indicar a copilot que indexe el contenido de la documentacion oficial de la libreria o lenguaje,  esto se puede hacer utilzando el tool #fetch y copiando el link correspondiente,  esto le va a permitir a copilot indexar el contenido de la documentacion y utilizarlo como contexto.
 
 - Puede abrirse el chat de Copilot en una ventana nueva, muy cómodo cuando se trabaja con mas de una pantalla ya que permite ver el código y las respuestas de Copilot simultáneamente. Esto se puede hacer haciendo clic en "Abrir chat en una ventana nueva" en las opciones del chat arriba a la derecha.
 
