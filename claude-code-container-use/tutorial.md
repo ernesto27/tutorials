@@ -139,6 +139,24 @@ git commit -m "Initial commit"
 
 ## Uso de Claude Code  
 
+Antes de arrancar con el uso de claude code, debemos crear un archivo de configuracion CLAUDE.md para indicarles cuales son las instrucciones que debe seguir claude.
+
+Dentro de claude, ejecutar lo siguiente.
+
+```sh 
+/init
+```
+
+Durante la ejecucion de este comando,  claude les va a pedir permiso para ejcutar herramientes.
+![](image2.png)
+
+Archivo generardo por claude 
+
+https://github.com/ernesto27/tutorials/commit/975140d21d0f116a68dfea28c0e55feae95bdc57
+
+
+
+
 Vamos a ver un ejemplo de como seria el uso de Claude code desde la terminal, realizando cambio en nuestro branch actual.
 
 Vamos a pedir a claude que nos genere un endpoint que retorne la version actual de la API.
