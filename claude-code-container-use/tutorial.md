@@ -246,6 +246,87 @@ Podemos ver los cambios realizados via terminal
 cu logs 
 ```
 
+A medida que se va generado el codigo, claude nos va mostrando los cambios que va realizando y la opcion de aceptar o modificar los cambios.
+
+Cambios generados por claude:
+
+https://github.com/ernesto27/tutorials/commit/5f80e12ea9aad4a51fece7a34de5db72c921ba4f
+
+
+Este seria un flujo de uso basico de claude code, en donde vamos viendo los cambios de manera incremental y podemos aceptar o modificar los cambios que nos propone al momento,  lo cual seria algo similar a lo que se puede hacer con vsCode, Cursor o Windsurf pero desde la terminal.
+
+En el proximo paso vamos a ver como podemos usar claude code para ejecutar tareas en background.
+
+
+## Claude code con Container use.
+
+Al momento si quiseramos usar claude code para ejecutar alguna otra tarea fuera de el branch o entorno local,  podriamos tener otra copia de proyecto en otra ruta y ejecutar claude ,  pero de que manera podriamos delegar una tarea a claude code sin que afecte a nuestro branch o carpeta acutal en la que necesitemos trabajar en otras tareas?
+
+Para esto podemos utilizar contenedores,  el cual nos permite tener un entorno aislado para ejecutar tareas o probar ideas,  
+vamos a utilizar un proyecto llamado container-use,  el cual esta desarrollado por el equipo creado de Docker y posteriormente de dagger.
+
+https://github.com/dagger/container-use
+
+### Instalación de Container Use
+
+Ejecutar el siguiente comando 
+```bash
+curl -fsSL https://raw.githubusercontent.com/dagger/container-use/main/install.sh | bash
+```
+
+Una vez instalado cu,  tenemos que configurar claude para que utilice el servicio MCP de cu.
+
+https://docs.anthropic.com/en/docs/mcp
+
+en la carpete del proyecto ejecutamos el siguiente comando:
+
+```bash
+claude mcp add container-use -- cu stdio
+```
+
+Agregar reglas de container use a CLAUDE.md 
+
+```bash
+curl https://raw.githubusercontent.com/dagger/container-use/main/rules/agent.md >> CLAUDE.md
+```
+
+### Crear tarea en background con container use
+
+Una vez configurado container-user vamos a probar lo siguiente:
+
+- Crear tarea en background con container use, claude code 
+- Revisar cambios realizados por claude code
+- Merger los cambios al branch principal
+
+
+Vamos a pedirle a claude que genere tests para los endpoints de nuestra API y ademas agregue una carpeta para los handlers/controladores de la API.
+
+```bash
+claude "Crea tests para los endpoints de la API y agrega una carpeta llamada controllers para los handlers de los endpoints,  use container-use MCP"
+```
+
+Claude va a empezar una nueva sesion, con la diferencia de que esta vez va a utilizar el MCP cu (container-use) para ejecutar los cambios en un contenedor.
+A medida que va ir avanzando, nos va a pedir permismo para ejecutar diferentes tools.
+![](image3.png)
+
+
+Debido a que container-use genere un nuevo branch,  tambien podemos ver los cambios haciendo un checkout al branch correspondiente:
+
+![](image4.png)
+
+Y en caso de ser necesario, agregar los cambios correspondientes en este branch o tambien en todo caso pedirle a Claude que los realice.
+
+Una vez que estamos conformes con los cambios podemos hacer un merge al branch principal,  de esta manera:
+
+```bash
+cu merge devoted-squirrel main
+```
+
+
+
+
+
+
 
 
 
