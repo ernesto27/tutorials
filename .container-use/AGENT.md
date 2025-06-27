@@ -1,1 +1,1 @@
-No instructions found. Please look around the filesystem and update me
+Go API project for creating tests and refactoring handlers into controllers. Use 'go run main.go' to start server, 'go test ./...' to run tests, 'go build' to build. Server runs on port 8080 with /hello endpoint.
