@@ -250,7 +250,9 @@ Debido a que container-use genere un nuevo branch,  tambien podemos ver los camb
 
 ![](image4.png)
 
-A medida que se va generado el codigo, claude nos va mostrando los cambios que va realizando y la opcion de aceptar o modificar los cambios.
+A medida que se va generado el codigo, claude nos va mostrando los cambios que va realizando y la opcion de aceptar o modificar los cambios,  aca debemos elegir la segunda opcion para que no vuelva a preguntar en las proximas tareas.
+
+```bash
 
 Una vez que estamos conformes con los cambios podemos hacer un merge al branch principal,  de esta manera:
 
@@ -265,7 +267,7 @@ https://github.com/ernesto27/tutorials/commit/75bb0b1c7323a5ef236d668a4dfb440937
 
 ## Resumen
 
-En este tutorial hemos aprendido a combinar Claude Code con Container Use para ejecutar tareas en un entorno aislado sin afectar nuestro branch principal. A continuación, los puntos clave:
+En este tutorial hemos aprendido a combinar Claude Code con Container Use para ejecutar tareas en paralelo y un entorno aislado sin afectar nuestro branch principal. A continuación, los puntos clave:
 
 - Configuración inicial de Claude Code, incluyendo autenticación y uso de `claude` desde la terminal.
 - Creación de una API en Go y uso de Claude Code para agregar endpoints y pruebas de manera incremental.
