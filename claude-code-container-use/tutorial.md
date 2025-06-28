@@ -75,7 +75,7 @@ En caso de tener un ApiKey ya generado previamente, existe la posibilidad de uti
 Una vez configurado nuestro ApiKey o cuenta, podemos acceder a Claude.
 
 
-![Claude Code Setup](image1.png)
+![Claude Code Setup](https://raw.githubusercontent.com/ernesto27/tutorials/refs/heads/master/claude-code-container-use/image1.png)
 
 ### Crear proyecto API go.
 
@@ -149,7 +149,7 @@ Dentro de claude, ejecutar lo siguiente.
 ```
 
 Durante la ejecución de este comando, Claude les va a pedir permiso para ejecutar diferentes herramientas.
-![](image2.png)
+![](https://raw.githubusercontent.com/ernesto27/tutorials/refs/heads/master/claude-code-container-use/image2.png)
 
 Archivo generado por Claude 
 
@@ -226,7 +226,7 @@ claude "Crea tests para los endpoints de la API y agrega una carpeta llamada con
 
 Claude va a empezar una nueva sesión, con la diferencia de que esta vez va a utilizar el MCP cu (container-use) para ejecutar los cambios en un contenedor.
 A medida que va ir avanzando, nos va a pedir permismo para ejecutar diferentes tools.
-![](image3.png)
+![](https://raw.githubusercontent.com/ernesto27/tutorials/refs/heads/master/claude-code-container-use/image3.png)
 
 Selecciones la segunda opcion "Yes, and don't ask again for container-use:environment_create",  de esta menera en las proximas tareas ya no nos va a aparecer este mensaje.
 
@@ -248,7 +248,7 @@ cu logs
 
 Debido a que container-use genere un nuevo branch,  tambien podemos ver los cambios haciendo un checkout al branch correspondiente:
 
-![](image4.png)
+![](https://raw.githubusercontent.com/ernesto27/tutorials/refs/heads/master/claude-code-container-use/image4.png)
 
 A medida que se va generado el codigo, claude nos va mostrando los cambios que va realizando y la opcion de aceptar o modificar los cambios,  aca debemos elegir la segunda opcion para que no vuelva a preguntar en las proximas tareas.
 
