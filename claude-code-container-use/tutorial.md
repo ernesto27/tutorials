@@ -240,7 +240,7 @@ Podemos ver los cambios realizados via terminal
 cu logs 
 ```
 
-Debido a que container-use genere un nuevo branch,  tambien podemos ver los cambios haciendo un checkout al branch correspondiente:
+Debido a que container-use genera un nuevo branch,  tambien podemos ver los cambios haciendo un checkout al branch correspondiente:
 
 ![](https://raw.githubusercontent.com/ernesto27/tutorials/refs/heads/master/claude-code-container-use/image4.png)
 
