@@ -80,7 +80,7 @@ Una vez configurado nuestro ApiKey o cuenta, podemos acceder a Claude.
 ### Crear proyecto API go.
 
 Para probar claude-code en conjunto con container-use ,  vamos a crear un proyecto de una API en Go.
-https://go.dev/
+[Go Documentation](https://go.dev/)
 
 En la carpeta creada anteriormente, claude-code-example, agregamos estos dos archivos.
 
@@ -151,9 +151,7 @@ Dentro de claude, ejecutar lo siguiente.
 Durante la ejecución de este comando, Claude les va a pedir permiso para ejecutar diferentes herramientas.
 ![](https://raw.githubusercontent.com/ernesto27/tutorials/refs/heads/master/claude-code-container-use/image2.png)
 
-Archivo generado por Claude 
-
-https://github.com/ernesto27/tutorials/commit/975140d21d0f116a68dfea28c0e55feae95bdc57
+[Archivo generado por Claude](https://github.com/ernesto27/tutorials/commit/975140d21d0f116a68dfea28c0e55feae95bdc57)
 
 
 Vamos a ver un ejemplo de como seria el uso de Claude Code desde la terminal, realizando cambios en nuestro branch actual.
@@ -166,9 +164,7 @@ claude "Crea un endpoint que retorne la version  de la API, la version se define
 
 A medida que se va generado el codigo, claude nos va mostrando los cambios que va realizando y la opcion de aceptar o modificar los cambios.
 
-Cambios generados por claude:
-
-https://github.com/ernesto27/tutorials/commit/5f80e12ea9aad4a51fece7a34de5db72c921ba4f
+[Cambios generados por claude](https://github.com/ernesto27/tutorials/commit/5f80e12ea9aad4a51fece7a34de5db72c921ba4f)
 
 
 Este sería un flujo de uso básico de Claude Code, en donde vamos viendo los cambios de manera incremental y podemos aceptar o modificar los cambios que nos propone en el momento, lo cual sería algo similar a lo que se puede hacer con Copilot, Cursor o Windsurf pero desde la terminal.
@@ -182,9 +178,7 @@ Al momento si quisiéramos usar Claude Code para ejecutar alguna otra tarea fuer
 Pero de que manera podriamos delegar una tarea a Claude Code en nuestar maquina sin que afecte a nuestro branch o carpeta acutal en la que necesitemos trabajar en otras tareas?
 
 Para esto podemos utilizar contenedores, los cuales nos permiten tener un entorno aislado para ejecutar tareas, probar ideas, librerías, refactors, etc.  
-vamos a utilizar un proyecto llamado container-use,  el cual esta desarrollado por el equipo creador de Docker y posteriormente de Dagger.
-
-https://github.com/dagger/container-use
+vamos a utilizar un proyecto llamado [container-use](https://github.com/dagger/container-use),  el cual esta desarrollado por el equipo creador de Docker y posteriormente de Dagger.
 
 ### Instalación de Container Use
 
@@ -195,7 +189,7 @@ curl -fsSL https://raw.githubusercontent.com/dagger/container-use/main/install.s
 
 Una vez instalado cu,  tenemos que configurar claude para que utilice el servicio MCP de cu.
 
-https://docs.anthropic.com/en/docs/mcp
+Más información sobre MCP: [Model Context Protocol](https://docs.anthropic.com/en/docs/mcp)
 
 en la carpeta del proyecto ejecutamos el siguiente comando:
 
@@ -252,7 +246,6 @@ Debido a que container-use genere un nuevo branch,  tambien podemos ver los camb
 
 A medida que se va generado el codigo, claude nos va mostrando los cambios que va realizando y la opcion de aceptar o modificar los cambios,  aca debemos elegir la segunda opcion para que no vuelva a preguntar en las proximas tareas.
 
-```bash
 
 Una vez que estamos conformes con los cambios podemos hacer un merge al branch principal,  de esta manera:
 
@@ -260,10 +253,7 @@ Una vez que estamos conformes con los cambios podemos hacer un merge al branch p
 cu merge devoted-squirrel main
 ```
 
-Cambios generados 
-
-
-https://github.com/ernesto27/tutorials/commit/75bb0b1c7323a5ef236d668a4dfb44093728ec6e
+[Cambios generados](https://github.com/ernesto27/tutorials/commit/75bb0b1c7323a5ef236d668a4dfb44093728ec6e)
 
 ## Resumen
 
